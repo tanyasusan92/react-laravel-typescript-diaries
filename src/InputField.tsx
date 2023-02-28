@@ -12,7 +12,7 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
       className="flex items-center justify-center"
       onSubmit={(e) => {
         handleAdd(e);
-        console.log(inputRef.current);
+        inputRef.current?.focus();
       }}
     >
       <input

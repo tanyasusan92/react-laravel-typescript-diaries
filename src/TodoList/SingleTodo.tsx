@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Todo } from "../model";
 import { RiDeleteBin6Line, RiPencilLine } from "react-icons/ri";
 import { TiTick } from "react-icons/ti";
+import EditField from "./EditField";
 
 interface Props {
   todo: Todo;
@@ -57,14 +58,12 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
       className="flex flex-row items-center justify-between p-4 mb-2 mr-2 bg-pink-900 rounded-lg min-h-12"
     >
       {editable ? (
-        <form onSubmit={(e) => handleEdit(e, todo.id)}>
-          <input
-            className="p-2 text-lg text-white bg-gray-800 rounded-lg "
-            type="input"
-            value={editValue}
-            onChange={(e) => setEditValue(e.target.value)}
-          />
-        </form>
+        <EditField
+          editValue={editValue}
+          setEditValue={setEditValue}
+          handleEdit={handleEdit}
+          id={todo.id}
+        />
       ) : todo.isDone ? (
         <s className="pr-10 text-lg">{todo.todo} </s>
       ) : (
