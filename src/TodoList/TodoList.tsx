@@ -4,8 +4,13 @@ import { TiTick } from "react-icons/ti";
 
 interface Props {
     todos: Todo[];
+    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
   }
-const TodoList:React.FC<Props> = ({todos}) =>{
+
+const TodoList:React.FC<Props> = ({todos, setTodos}) =>{
+    const handleDelete = (id:number) => {
+        setTodos(todos.filter(todo=>todo.id!==id));
+    }
   return (
     <>
       {todos.map((todo) => (
@@ -13,7 +18,7 @@ const TodoList:React.FC<Props> = ({todos}) =>{
               <span className="pr-10 text-lg">{todo.todo} </span>
               <div className="flex flex-row">
                 <RiPencilLine className="text-xl text-white" />
-                <RiDeleteBin6Line className="ml-2 text-xl text-white" />
+                <RiDeleteBin6Line onClick={(e)=>handleDelete(todo.id)} className="ml-2 text-xl text-white cursor-pointer" />
                 <TiTick className="ml-2 text-xl text-white"/>
               </div>
             </div>

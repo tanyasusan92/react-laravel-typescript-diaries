@@ -30,7 +30,7 @@ const App: React.FC = () => {
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
         
         <div className="flex flex-wrap text-white">
-        <TodoList todos={todos}/>
+        <TodoList todos={todos} setTodos={setTodos}/>
         </div>
       </div>
     </div>
