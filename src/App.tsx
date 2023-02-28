@@ -16,7 +16,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-900">
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-900 select-none">
       <h1 className="mb-8 text-3xl font-bold text-white">
         Todo with react and typescript
       </h1>
@@ -27,10 +27,10 @@ const App: React.FC = () => {
         >
           My next todo:
         </label>
-        <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-        
+        <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+
         <div className="flex flex-wrap text-white">
-        <TodoList todos={todos} setTodos={setTodos}/>
+          <TodoList todos={todos} setTodos={setTodos} />
         </div>
       </div>
     </div>

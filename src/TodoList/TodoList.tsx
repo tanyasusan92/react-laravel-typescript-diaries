@@ -1,30 +1,19 @@
 import { Todo } from "../model";
-import { RiDeleteBin6Line, RiPencilLine } from "react-icons/ri";
-import { TiTick } from "react-icons/ti";
+import SingleTodo from "./SingleTodo";
 
 interface Props {
-    todos: Todo[];
-    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-  }
+  todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+}
 
-const TodoList:React.FC<Props> = ({todos, setTodos}) =>{
-    const handleDelete = (id:number) => {
-        setTodos(todos.filter(todo=>todo.id!==id));
-    }
+const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
   return (
     <>
       {todos.map((todo) => (
-            <div key={todo.id} className="flex flex-row justify-between p-4 mb-2 mr-2 bg-pink-900 rounded-lg min-h-12">
-              <span className="pr-10 text-lg">{todo.todo} </span>
-              <div className="flex flex-row">
-                <RiPencilLine className="text-xl text-white" />
-                <RiDeleteBin6Line onClick={(e)=>handleDelete(todo.id)} className="ml-2 text-xl text-white cursor-pointer" />
-                <TiTick className="ml-2 text-xl text-white"/>
-              </div>
-            </div>
-          ))}
-   </>
-  )
-}
+        <SingleTodo todo={todo} todos={todos} setTodos={setTodos} />
+      ))}
+    </>
+  );
+};
 
 export default TodoList;
