@@ -28,10 +28,10 @@ const App: React.FC = () => {
         >
           My next todo:
         </label>
-        <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+        <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
         <div className="flex flex-wrap text-white">
-          {todos.map((todo) => (
-            <div className="flex flex-row justify-between p-4 mb-2 mr-2 bg-pink-900 rounded-lg min-h-12">
+          {todos.map((todo, id) => (
+            <div key={todo.id} className="flex flex-row justify-between p-4 mb-2 mr-2 bg-pink-900 rounded-lg min-h-12">
               <span className="pr-10 text-lg">{todo.todo} </span>
               <div className="flex flex-row">
                 <RiPencilLine className="text-xl text-white" />
